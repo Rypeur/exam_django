@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container text-center">
+    <h2>Les Jeux Videos</h2>
+</div>
+
+{% for jeu_video in jeux_videos %}
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+        <img class="card-img-top" src="{{jeu_video.image.url}}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">{{ jeu_video.tire }}</h4>
+            <h6>Date de sortie : </h6>
+                <p class="card-text">{{ jeu_video.date }}</p>
+            <h6>Editeurs : </h6>
+            {% for editeur in jeu_video.editeur.all %}
+                <p class="card-text">- {{ editeur.nom }}</p>
+                {% empty %}
+                <p class="card-text">- Inconnu</p>
+            {% endfor %}
+            <h6>Developpeurs : </h6>
+            {% for developpeur in jeu_video.developpeur.all %}
+                <p class="card-text">- {{ developpeur.nom }}</p>
+                {% empty %}
+                <p class="card-text">- Inconnu</p>
+            {% endfor %}
+            <h6>Genres : </h6>
+            {% for genre in jeu_video.genre.all %}
+                <p class="card-text">- {{ genre.nom }}</p>
+                {% empty %}
+                <p class="card-text">- Inconnu</p>
+            {% endfor %}
+            <h6>Plateformes : </h6>
+            {% for plateforme in jeu_video.plateforme.all %}
+                <p class="card-text">- {{ plateforme.nom }}</p>
+                {% empty %}
+                <p class="card-text">- Inconnu</p>
+            {% endfor %}
+            <h6>Description : </h6>
+            <p class="card-text">{{ jeu_video.description | truncatewords_html:20}}</p>
+        </div>
+        <div class="card-footer">
+                <a href="{% url 'view_jeu_video' id=jeu_video.id %}" class="btn btn-info">Voir plus</a>
+        </div>
+        </div>
+    </div>
+{% empty %}
+    <div class=" container text-center"><p>Aucun Jeux Videos.</p></div>
+{% endfor %}
+{% endblock %}

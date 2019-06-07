@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="text-center container">
+        <div class=" container col-lg-9">
+                <div class="card mt-4 ">
+                    <h6>Développeur N° {{developpeur.id}}</h6>
+                    <h3 class="card-title">{{ developpeur.nom }}</h3>
+                    <img class="card-img-top img-fluid" src="{{developpeur.image.url}}"/>
+                    <div class="card-body">
+                        <h6>Description : </h6>
+                        <p class="card-text">{{ developpeur.description }}</p>
+                    </div>
+                    <a href="{% url 'modify_developpeur' id=developpeur.id %}" class="btn btn-warning">Modifier</a>
+                    <a href="{% url 'delete_developpeur' id=developpeur.id %}" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container text-center">
+    <h2>Les Editeurs</h2>
+</div>
+
+{% for editeur in editeurs %}
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+        <img class="card-img-top" src="{{editeur.image.url}}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">{{editeur.nom}}</h4>
+            <p class="card-text">{{editeur.description | truncatewords_html:40}}</p>
+        </div>
+        <div class="card-footer">
+                <a href="{% url 'view_editeur' id=editeur.id %}" class="btn btn-info">Voir plus</a>
+        </div>
+        </div>
+    </div>
+{% empty %}
+    <div class=" container text-center"><p>Aucun Editeurs.</p></div>
+{% endfor %}
+{% endblock %}

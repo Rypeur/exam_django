@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<form action="{% url "add_jeu_video" %}" enctype="multipart/form-data" method="post" class="container text-center" >
+{% if envoi %}Votre Jeu Video a bien été ajouté{% endif %}
+{% csrf_token %}
+<div class="form-group ">
+    {{ form.titre.errors }}
+    <label for="{{ form.titre.id_for_label }}">{{ form.titre.label }}</label>
+    {{ form.titre }}
+</div>
+
+<div class="form-group ">
+        {{ form.description.errors }}
+        <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+        {{ form.description }}
+</div>
+
+<div class="form-group ">
+        {{ form.date.errors }}
+        <label for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>
+        {{ form.date }}
+</div>
+
+<div class="form-group ">
+        {{ form.genre.errors }}
+        <label for="{{ form.genre.id_for_label }}">{{ form.genre.label }}</label>
+        {{ form.genre }}
+</div>
+
+<div class="form-group ">
+        {{ form.plateforme.errors }}
+        <label for="{{ form.plateforme.id_for_label }}">{{ form.plateforme.label }}</label>
+        {{ form.plateforme }}
+</div>
+
+<div class="form-group ">
+        {{ form.editeur.errors }}
+        <label for="{{ form.editeur.id_for_label }}">{{ form.editeur.label }}</label>
+        {{ form.editeur }}
+</div>
+
+<div class="form-group ">
+        {{ form.developpeur.errors }}
+        <label for="{{ form.developpeur.id_for_label }}">{{ form.developpeur.label }}</label>
+        {{ form.developpeur }}
+</div>
+
+<div class="form-group ">
+        {{ form.image.errors }}
+        <label for="{{ form.image.id_for_label }}">{{ form.image.label }}</label>
+        {{ form.image }}
+</div>
+<input class="btn btn-success" type="submit"/>
+</form>
+{% endblock %}
+    

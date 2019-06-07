@@ -1,0 +1,52 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Les Jeux Vidéos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'jeux videos' %}">Jeux Vidéos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'editeurs' %}">Editeurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'developpeurs' %}">Développeurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'genres' %}">Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'plateformes' %}">PlateFormes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item"><div class="btn-group" role="group">
+                            <a class="nav-link">Ajouter</a>
+                            <div class="btn-group" role="group">
+                                <a id="btnGroupDrop1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false"></a>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="{% url 'add_jeu_video' %}">Jeu Video</a>
+                                    <a class="dropdown-item" href="{% url 'add_editeur' %}">Editeur</a>
+                                    <a class="dropdown-item" href="{% url 'add_developpeur' %}">Développeur</a>
+                                    <a class="dropdown-item" href="{% url 'add_genre' %}">Genre</a>
+                                    <a class="dropdown-item" href="{% url 'add_plateforme' %}">Plateforme</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>  

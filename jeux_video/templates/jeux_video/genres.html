@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container text-center">
+    <h2>Les Genres</h2>
+</div>
+
+{% for genre in genres %}
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+        <img class="card-img-top" src="{{genre.image.url}}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">{{genre.nom}}</h4>
+            <p class="card-text">{{genre.description | truncatewords_html:40}}</p>
+        </div>
+        <div class="card-footer">
+                <a href="{% url 'view_genre' id=genre.id %}" class="btn btn-info">Voir plus</a>
+        </div>
+        </div>
+    </div>
+{% empty %}
+    <div class=" container text-center"><p>Aucun Genres.</p></div>
+{% endfor %}
+{% endblock %}

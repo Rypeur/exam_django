@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+{% if envoi %}Votre message a bien été envoyé !{% endif %}
+
+<form action="{% url "contact" %}" method="post">
+{% csrf_token %}
+<div class="form-group ">
+    {{ form.sujet.errors }}
+    <label for="{{ form.sujet.id_for_label }}">{{ form.sujet.label }}</label>
+    {{ form.sujet }}
+</div>
+
+<div class="form-group">
+    {{ form.message.errors }}
+    <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+    {{ form.message }}
+</div>
+
+<div class="form-group">
+    {{ form.envoyeur.errors }}
+    <label for="{{ form.envoyeur.id_for_label }}">{{ form.envoyeur.label }}</label>
+    {{ form.envoyeur }}
+</div>
+
+<div class="form-group">
+    {{ form.renvoi.errors }}
+    <label for="{{ form.renvoi.id_for_label }}">{{ form.renvoi.label }}</label>
+    {{ form.renvoi }}
+    {{ form.renvoi.help_text }}
+</div>
+<!--{{ form.as_p }}-->
+<input class="btn btn-success" type="submit"/>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="text-center container">
+        <div class=" container col-lg-9">
+                <div class="card mt-4 ">
+                    <h6>Genre N° {{genre.id}}</h6>
+                    <h3 class="card-title">{{ genre.nom }}</h3>
+                    <img class="card-img-top img-fluid" src="{{genre.image.url}}"/>
+                    <div class="card-body">
+                        <h6>Description : </h6>
+                        <p class="card-text">{{ genre.description }}</p>
+                    </div>
+                    <a href="{% url 'modify_genre' id=genre.id %}" class="btn btn-warning">Modifier</a>
+                    <a href="{% url 'delete_genre' id=genre.id %}" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+</div>
+{% endblock %} 

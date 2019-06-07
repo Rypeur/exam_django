@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="text-center container">
+        <div class=" container col-lg-9">
+                <div class="card mt-4 ">
+                    <h6>Jeu Video N° {{jeu_video.id}}</h6>
+                    <h3 class="card-title">{{ jeu_video.titre }}</h3>
+                    <img class="card-img-top img-fluid" src="{{jeu_video.image.url}}"/>
+                    <div class="card-body">
+                        <h6>Date de sortie : </h6>
+                        <p class="card-text">{{ jeu_video.date }}</p>
+                        <h6>Editeurs : </h6>
+                        {% for editeur in editeurs %}
+                            <p class="card-text">- {{ editeur.nom }}</p>
+                            {% empty %}
+                            <p class="card-text">- Inconnu</p>
+                        {% endfor %}
+                        
+                        <h6>Developpeurs : </h6>
+                        {% for developpeur in developpeurs %}
+                            <p class="card-text">- {{ developpeur.nom }}</p>
+                            {% empty %}
+                            <p class="card-text">- Inconnu</p>
+                        {% endfor %}
+                        <h6>Genres : </h6>
+                        {% for genre in genres %}
+                            <p class="card-text">- {{ genre.nom }}</p>
+                            {% empty %}
+                            <p class="card-text">- Inconnu</p>
+                        {% endfor %}
+                        <h6>Plateformes : </h6>
+                        {% for plateforme in plateformes %}
+                            <p class="card-text">- {{ plateforme.nom }}</p>
+                            {% empty %}
+                            <p class="card-text">- Inconnu</p>
+                        {% endfor %}
+                        <h6>Description : </h6>
+                        <p class="card-text">{{ jeu_video.description }}</p>
+                    </div>
+                    <a href="{% url 'modify_jeu_video' id=jeu_video.id %}" class="btn btn-warning">Modifier</a>
+                    <a href="{% url 'delete_jeu_video' id=jeu_video.id %}" class="btn btn-danger">Supprimer</a>
+            </div>
+        </div>
+</div>
+{% endblock %} 
